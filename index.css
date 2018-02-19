@@ -1,0 +1,19 @@
+body {
+  background-color: darkblue;
+  color: pink;
+  font-size: 1em;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+}
+
+.container > * {
+  display: flex;
+  justify-content: center;
+}
