@@ -115,6 +115,7 @@ h1 {
   right: 0;
   width: 60%;
   height: 80px;
+  margin: 0 0 0 auto;
   justify-content: right;
   padding-right: 10px;
   font-size: 2em;
