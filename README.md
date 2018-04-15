@@ -1,3 +1,3 @@
 # testSite
 
-This is a test with GitHub Pages.
+This is a repository that I use to test a GitHub Page before it goes live.
