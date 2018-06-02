@@ -290,28 +290,11 @@ h1 {
     padding-bottom: 5px;
     padding-top: 5px;
   }
-}
+}*/
 
 @media screen and (max-width: 544px) {
   h1 {
     font-size: 3em;
   }
 
-  .card {
-    grid-template-rows: 380px 80px;
-  }
-
-  .card-title, .overlay-card-title, .card-hor-title {
-    font-size: 1em;
-  }
-
-  .card-short-descr {
-    font-size: 1em;
-    padding-bottom: 4;
-  }
-
-  .card-description {
-    font-size: 22px;
-    padding: 0 10px 0 10px;
-  }
-} */
+}
