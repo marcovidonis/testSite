@@ -31,8 +31,33 @@ body {
   grid-column: 2;
   margin-bottom: 50px;
   margin-top: 50px;
+  display: flex;
+  justify-content: center;
 }
 
+#coverScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  visibility: visible;
+  position: absolute;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 105%;
+  height: 105%;
+  background-color: white;
+  opacity: 0.75;
+  filter: alpha(opacity=75);
+  color: #333;
+  font-size: 50px;
+}
+
+@keyframes rotation {from {transform: rotate(0deg)} to {transform: rotate(360deg)}}
+#coverScreen .fa-spinner {
+  animation: 1.5s linear infinite rotation;
+}
 
 footer {
   /* background-color: #333; */
