@@ -51,7 +51,7 @@
         })
           .done(function() {
             for (i=0; i<3; i++) {
-              photoURL = "https://api.instagram.com/oembed?url=https://www.instagram.com/p/" + arrPhotoURL[i];
+              photoURL = "https://api.instagram.com/oembed?url=https://www.instagram.com/p/" + arrPhotoURL[i] + "&maxwidth=500&hidecaption=true";
               // instagramHTMLs.push(getPicture(photoURL));
               console.log("pushed HTML to array, no. " + i);
               // $("#instagram-placeholder").add("div").html(instagramHTMLs[i]);
@@ -79,7 +79,7 @@
   <body>
     <div id="coverScreen"><i class = "fas fa-spinner"></i></div>
 
-    <div class="container">
+    <!-- <div class="container"> -->
 
       <div id="instagram-placeholder"></div>
 
@@ -89,7 +89,7 @@
         <img src="img/band.png">
         <!-- <p>Made by Marco Vidonis, 2018</p> -->
       </footer>
-    </div>
+    <!-- </div> -->
 
   </body>
 
