@@ -50,7 +50,7 @@
           getPhotoIDs(instagramSource.contents);
         })
           .done(function() {
-            for (i=0; i<3; i++) {
+            for (i=0; i<20; i++) {
               photoURL = "https://api.instagram.com/oembed?url=https://www.instagram.com/p/" + arrPhotoURL[i] + "&maxwidth=500&hidecaption=true";
               // instagramHTMLs.push(getPicture(photoURL));
               console.log("pushed HTML to array, no. " + i);
