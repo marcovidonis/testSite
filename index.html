@@ -20,6 +20,7 @@
       // var instagramUrl = "https://api.instagram.com/oembed?url=http://instagr.am/p/fA9uwTtkSN/"
       var instaHashtag = "gopro"
       var arrPhotoURL = [];
+      var instagramHTMLs = [];
 
       function getPhotoIDs(htmlSource) {
         arrPhotoURL = htmlSource.split(/"shortcode":"/)
@@ -31,24 +32,44 @@
         console.log(arrPhotoURL);
       }
 
-      function getPicture(instagramUrl) {
-        $.getJSON(instagramUrl, function(json){
+      function getPicture(sourceUrl) {
+        $.getJSON(sourceUrl, function(json){
           console.log(json);
-          $("#instagram-placeholder").html(json.html);
+          // $("#instagram-placeholder").html(json.html);
+          return json.html;
         });
       }
 
       $(document).ready(function(){
 
         //getting the html of a page. allorigins.me is a CORS workaround
-        var instagramUrl = "https://www.instagram.com/explore/tags/" + instaHashtag + "/"
+        var instagramUrl = "https://www.instagram.com/explore/tags/" + instaHashtag + "/";
+        var photoURL;
+
         $.getJSON('https://allorigins.me/get?url=' + encodeURIComponent(instagramUrl) + '&callback=?', function(instagramSource) {
           getPhotoIDs(instagramSource.contents);
-          //the following will be iterated through all photos found while scraping
-          // var photoURL = "https://api.instagram.com/oembed?url=https://www.instagram.com/p/BjhDMciHuKW/"
-          var photoURL = "https://api.instagram.com/oembed?url=https://www.instagram.com/p/" + arrPhotoURL[0];
-          getPicture(photoURL);
-        });
+        })
+          .done(function() {
+            for (i=0; i<3; i++) {
+              photoURL = "https://api.instagram.com/oembed?url=https://www.instagram.com/p/" + arrPhotoURL[i];
+              // instagramHTMLs.push(getPicture(photoURL));
+              console.log("pushed HTML to array, no. " + i);
+              // $("#instagram-placeholder").add("div").html(instagramHTMLs[i]);
+
+              $.getJSON(photoURL)
+                .done(function(data) {
+                  $("<div/>", {
+                    html: data.html
+                  }).appendTo("#instagram-placeholder");
+                });
+
+
+            }
+            console.log(instagramHTMLs);
+          });
+
+
+
 
 
 
@@ -64,25 +85,15 @@
   <body>
     <div class="container">
 
-      <div id="instagram-placeholder">
+      <div id="instagram-placeholder"></div>
 
-      </div>
-      <div></div>
-      <div></div>
-      <div>
+      <!-- <div class="full-width"><img src="img/band.png"></div> -->
 
-      </div>
-
-
-
-      <div class="full-width"><img src="img/band.png"></div>
-
-      <div class="footer">
-        <p>Made by Marco Vidonis, 2018</p>
-      </div>
+      <footer class="footer">
+        <img src="img/band.png">
+        <!-- <p>Made by Marco Vidonis, 2018</p> -->
+      </footer>
     </div>
-
-    <!-- <script async defer src="http://www.instagram.com/embed.js"></script> -->
 
   </body>
 
