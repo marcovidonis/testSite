@@ -138,6 +138,10 @@ h1 {
   overflow: hidden;
 }
 
+.card-short-descr a {
+  text-decoration: none;
+}
+
 .card-title {
   grid-column: 3;
   grid-row: 2;
