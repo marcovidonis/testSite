@@ -89,6 +89,12 @@ h1 {
   color: white;
 }
 
+@media screen and (max-width: 900px) {
+  h1 {
+    font-size: 3em;
+  }
+}
+
 @media screen and (max-width: 544px) {
   h1 {
     font-size: 2.1em;
