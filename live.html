@@ -21,6 +21,8 @@
       var arrPhotoURL = [];
       var instagramHTMLs = [];
 
+
+
       function getPhotoIDs(htmlSource) {
         arrPhotoURL = htmlSource.split(/"shortcode":"/)
         //the first element is garbage
@@ -29,7 +31,21 @@
           arrPhotoURL[i] = arrPhotoURL[i].slice(0,11);
         }
         // here add a fix to remove duplicates in array
+        arrPhotoURL = eliminateDuplicates(arrPhotoURL);
         console.log(arrPhotoURL);
+      }
+
+      function eliminateDuplicates(myArray) {
+        var newArray = [];
+        for (i=0; i < myArray.length; i++) {
+          var thisElement = myArray[i];
+          console.log("evaluating element: " + thisElement + ", index: " + i);
+          console.log("searching..." + myArray.indexOf(thisElement, 0, i-1));
+          if (myArray.indexOf(thisElement, 0) >= i) {
+            newArray.push(thisElement);
+          }
+        }
+        return newArray;
       }
 
       $(document).ready(function(){
